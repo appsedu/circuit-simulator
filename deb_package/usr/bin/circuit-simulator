@@ -1,0 +1,20 @@
+#!/bin/bash
+
+APP_1=http://lushprojects.com/circuitjs/circuitjs.html
+APP_2=http://www.falstad.com/circuit/circuitjs.html
+
+hasNet=$(curl -m 3 $APP_1 2>/dev/null | grep 'circuitjs1/circuitjs1.nocache' | wc -l)
+
+if [ ! "$hasNet" == "0" ]; then
+	xdg-open $APP_1
+	exit
+fi
+
+hasNet=$(curl -m 3 $APP_2 2>/dev/null | grep 'circuitjs1/circuitjs1.nocache' | wc -l)
+
+if [ ! "$hasNet" == "0" ]; then
+	xdg-open $APP_1
+	exit
+fi
+
+java -jar /usr/share/circuitmod2-7/CircuitMod.jar

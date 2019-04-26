@@ -1,0 +1,17 @@
+
+You would need install JRE for Java Runtimes...
+
+In Elementary OS, Ubuntu and Debian, use:
+
+sudo apt-get install default-jre
+
+Before, click on CircuitMod.jar to run app.
+
+Feel free to collaborate:
+
+http://circuitmod.sourceforge.net
+
+Marcelo Nuñez
+marcelognunez@gmail.com
+
+

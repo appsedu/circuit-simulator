@@ -1,0 +1,176 @@
+
+*****************
+* Version 2.7   *
+*****************
+
+marcelognunez add:
+	In Cirsim.java:
+	- dumpCircuit and readOptions (save and open files) now implements grid and grid size.
+	originally created by errtee.
+	- the updateCircuit code inherent about grid is in new function "grid()"
+	(must call setGrid() before this func. in order to avoid freezing issues.)
+	- functions involved in these funcionalities are.
+	init()
+	dumpCircuit()
+	itemStateChanged() [for signal management]
+	readOptions()
+	readSetup()
+	doSave()
+	updateCircuit()
+	stoppedCheck
+
+	I added modules from CircuitJS project (lushprojects.com)
+	- Box
+	- AM Source
+	- FM Source
+	- Tristate Buffer
+	- Schmitt Trigger Buffer (Non-Inverting)
+	- T Flip-Flop
+	- Multiplexer
+	- Demultiplexer
+	- SIPO Shift Register
+	- PISO Shift Register
+	- Sequence Generator
+	- Full Adder
+	- Half Adder
+	- Monostable
+
+	Compatibility backward with CMF format
+	- Maintaining the dumpfile numbers.
+
+	Now CHANGES are unified in Internation English for all collaborators.
+
+
+federoggio add:
+	If Character error in development make in Eclipse:
+	File->Properties-> (set character set in UTF-8)
+
+	- EditDialog.java in problems, when you put 100 in ohms in resistor, it set 99.8 ohms.
+
+
+
+errtee add:
+	2016-01-04:
+	bugfixes
+	========
+	resize window to 0 -> stack trace
+	select in options menu -> mouse mode = 0
+
+	improvements
+	============
+	a grid is shown
+
+	all shortcuts work
+	  'A';AntennaElm
+	  'a';OpAmpElm
+	  'c';CapacitorElm
+	  'd';DiodeElm
+	  'f';NMosfetElm
+	  'g';GroundElm
+	  'i';CurrentElm
+	  'I';InverterElm
+	  'j';NJfetElm
+	  'l';InductorElm
+	  'L';LogicInputElm
+	  'M';LogicOutputElm
+	  'm';MemristorElm
+	  'O';OutputElm
+	  'p';ProbeElm
+	  'R';RailElm
+	  'r';ResistorElm
+	  'S';Switch2Elm
+	  's';SwitchElm
+	  'T';TransformerElm
+	  't';NTransistorElm
+	  'v';VoltageElm
+	  'w';WireElm
+	  'x';TextElm
+	  'z';ZenerElm
+
+	circuitChanged behaves right (I hope)
+	can move elements with arrow keys
+	Alt+TAB (Alt+Shift+TAB) cyclic selects elements
+
+	Help->Keyboard Shortcuts
+	    reads file shortcuts.txt
+
+	New Look and feel: Metal (avoid linux compilation problem.)
+
+
+
+
+
+
+
+*****************
+* Version 2.6   *
+*****************
+
+fgg192 agregó:
+	-Add of ChangesAssociations=yes in INNO setup iss file
+	-Improvements of performance in CirSim.java
+
+federoggio agregó:
+	-Reducing of "deprecates" methods in CirSim.java and Circuit.java
+	-New splash graphics (logo.png)
+	-The module Circuit.java go to be called CircuitMod.java
+		(Future compatibility with MacOS X)
+	-Creation of Wrapper and Install for MacOS X 10.6 (pmdoc file)
+	 (It needed MacOS X 10.6 with Xcode, in Developer/Application/Utilities
+	  there is two applications (Jar Bundler y PackageMaker).
+	  With Jar Bundler is necessary add the folder "circuits" before
+	  generate the *.app. see content and copy/paste the folder for add it.
+
+
+*****************
+* Version 2.5.1 *
+*****************
+
+fgg192 agregó:
+	-Add Help->About.
+	-Add File->New.
+	-Deletion of Blank Circuit.
+	-Check up of the file at load.
+	-Add v2.5 to the splash screen.
+	-Move of pushUndo() from mousePressed(MouseEvent e) to the end of method.
+
+federoggio agregó:
+	-Open thru shell on Windows in INNO Setup.
+	-Improvements in the circuits (Circuits->Logic Transistors)
+
+
+***************
+* Version 2.5 *
+***************
+
+fgg192 agregó:
+	-Creation of a saving system in .CMF format
+	-Saving check out of file when open files and close application.
+	-Loading of file from Explorer (Windows); when select "Open" a cmf file from explorer open the app
+	and load the circuit. Regedit entries has been created that associate the format in the application.
+	-Deletion of menus Import and Export.
+	-Maximize window
+	-Replace of LeyListener by KeyboardFocusManager. This form avoid the selection of canvas's area for keyboard
+	use at startup; the keyboard work from start.
+	-Add functionality of DELETE (checkup)
+	-Add logo at startup when is loading.
+	-Add of icons to the frame.
+
+
+federoggio agregó:
+	-Development Website: http://circuitmod.sourceforge.net/
+	-Window title: CircuitMod v2.5
+	-Add menu and module: InverterSTElm.java (filecode:186)
+		(Logic Gates->Add ST Inverter)
+	-Add proof circuit: ST Inverter (setuplist.txt -> osc-st.txt)
+		(Circuits->Misc Devices->Schmitt Trigger Osc)
+	-Add ChipCDElm.java for CD4000 series
+	-Proof add (Sequencial Logic->Counter->4511 Full Test)
+	-4017 simulation issues (now actuate as must be)
+	-Open by Shell (Error still) in INNO Setup file.
+
+
+
+
+
+

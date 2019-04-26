@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Circuit Simulator
+Comment=An electronic circuit simulator
+Icon=protoboard
+Exec=/usr/bin/circuit-simulator
+Terminal=false
+Type=Application
+Categories=Science;Education;Electronics;

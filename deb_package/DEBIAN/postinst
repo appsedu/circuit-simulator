@@ -1,0 +1,40 @@
+#!/bin/bash
+
+cat /etc/passwd | grep '/home/' | \
+grep -v 'cups\|syslog' | cut -d ':' -f 1 > /tmp/homes.list
+
+function geraShort {
+	echo "[Desktop Entry]"
+	echo "Type=Link"
+	cat $1 | \
+	grep "Name=" | head -n1
+	cat $1 | \
+	grep "Name[pt_BR]=" | head -n1
+	cat $1 | \
+	grep "Icon=" | head -n1
+	echo "URL=$2"
+}
+
+while read USUARIO; do
+ 	runuser -l $USUARIO -c "mkdir -p /home/$USUARIO/.config/menus/applications-merged/"
+ 	runuser -l $USUARIO -c "mkdir -p /home/$USUARIO/.local/share/desktop-directories/"
+ 	runuser -l $USUARIO -c \
+	"cp -rf /tmp/circuit-simulator/education-Physics.directory /home/$USUARIO/.local/share/desktop-directories/"
+	runuser -l $USUARIO -c \
+	"cp -rf /tmp/circuit-simulator/education-Electronics.directory /home/$USUARIO/.local/share/desktop-directories/"
+	runuser -l $USUARIO -c \
+	"cp /tmp/circuit-simulator/circuit-simulator.menu /home/$USUARIO/.config/menus/applications-merged/"
+	runuser -l $USUARIO -c \
+	"cp -rf /tmp/circuit-simulator/circuit-simulator.desktop /home/$USUARIO/.local/share/applications/"
+	runuser -l $USUARIO -c \
+	"cp -rf /tmp/circuit-simulator/circuitmod.desktop /home/$USUARIO/.local/share/applications/"
+
+	geraShort /tmp/circuit-simulator/circuit-simulator.desktop \
+	/home/$USUARIO/.local/share/applications/circuit-simulator.desktop \
+	> /home/$USUARIO/Desktop/circuit-simulator.desktop
+
+	runuser -l $USUARIO -c "rm -rf /home/$USUARIO/.cache/"
+	if [ -f /usr/bin/lxpanelctl ]; then
+		su - $USUARIO -c "lxpanelctl restart"
+	fi
+done < /tmp/homes.list
