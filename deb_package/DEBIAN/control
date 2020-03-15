@@ -1,12 +1,12 @@
 Package: circuit-simulator-bionic
-Version: 2.7.0
+Version: 2.7.1
 Installed-Size: 3100
 Maintainer: Paul Falstad <falstad.com>
 Section: science
 Architecture: all
 Priority: optional
 Conflicts: simulide
-Depends: xdg-utils, curl
+Depends: xdg-utils, curl, default-jre
 Homepage: http://www.falstad.com/circuit
 Description: Electronic Circuit Simulator.
  This app is an electronic circuit simulator that runs in the browser. It was originally written by Paul Falstad as a Java Applet. It was adapted by Iain Sharp to run in the browser using GWT.
