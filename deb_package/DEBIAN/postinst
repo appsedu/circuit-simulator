@@ -29,9 +29,10 @@ while read USUARIO; do
 	runuser -l $USUARIO -c \
 	"cp -rf /tmp/circuit-simulator/circuitmod.desktop /home/$USUARIO/.local/share/applications/"
 
-	geraShort /tmp/circuit-simulator/circuit-simulator.desktop \
-	/home/$USUARIO/.local/share/applications/circuit-simulator.desktop \
-	> /home/$USUARIO/Desktop/circuit-simulator.desktop
+	# geraShort /tmp/circuit-simulator/circuit-simulator.desktop \
+	# /home/$USUARIO/.local/share/applications/circuit-simulator.desktop \
+	# > /home/$USUARIO/Desktop/circuit-simulator.desktop
+	cp /home/$USUARIO/.local/share/applications/circuit-simulator.desktop /home/$USUARIO/Desktop/circuit-simulator.desktop
 
 	runuser -l $USUARIO -c "rm -rf /home/$USUARIO/.cache/"
 	if [ -f /usr/bin/lxpanelctl ]; then
