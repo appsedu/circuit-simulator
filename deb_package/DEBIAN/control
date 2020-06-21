@@ -1,11 +1,10 @@
 Package: circuit-simulator
-Version: 2.7.2
-Installed-Size: 3100
+Version: 2.7.3
+Installed-Size: 1699
 Maintainer: Paul Falstad <falstad.com>
 Section: science
 Architecture: all
 Priority: optional
-Conflicts: simulide
 Depends: xdg-utils, curl, default-jre
 Homepage: http://www.falstad.com/circuit
 Description: Electronic Circuit Simulator.
