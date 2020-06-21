@@ -5,6 +5,7 @@ grep -v 'cups\|syslog' | cut -d ':' -f 6 > /tmp/homes.list
 
 while read BASEDIR; do
     rm -rf "$BASEDIR/.local/share/applications/circuit-simulator.desktop"
+    rm -rf "$BASEDIR/.local/share/applications/circuitmod.desktop"
     rm -rf "$BASEDIR/.config/menus/applications-merged/circuit-simulator.menu"
     rm -rf "$BASEDIR/Desktop/circuit-simulator.desktop"
     rm -rf "$BASEDIR/Desktop/circuitmod.desktop"
